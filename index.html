@@ -542,7 +542,8 @@
                 }
             }
         </style>
-        <!--全画面表示plugin-->
+        <link rel="stylesheet" href="geojsonautocomplete.css" />
+        <script src="geojsonautocomplete.js"></script>
     </head>
 <body>
     <a href="https://www.openstreetmap.jp">OpenStreetMap </a>と
@@ -550,6 +551,7 @@
     の組合せテスト
 
     <div id="map"></div>
+    <div id='searchContainer' style="position: fixed;"></div>
 
     <script type="text/javascript" src="osm-mlit.js"></script>
     <script>
@@ -559,6 +561,16 @@
         'true': '元に戻す'
         }
         }));
+        
+        var options = {
+            geojsonServiceAddress: "15-0101.geojson",
+            placeholderMessage: "検索条件を入力してください。",
+            notFoundMessage: "に一致する検索対象がありません。",
+            notFoundHint: "検索条件を変えて再検索してください。",
+            pointGeometryZoomLevel: 10
+        };
+
+        $("#searchContainer").GeoJsonAutocomplete(options);
     </script>
 </body>
 </html>
