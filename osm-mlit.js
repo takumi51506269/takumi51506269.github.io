@@ -15,7 +15,7 @@ L.control.scale()
 $.getJSON("15-0101.geojson", function(data) {
 var point = L.geoJson(data, {
     pointToLayer: function (feature, latlng) {
-    return L.marker(latlng,100, {
+    return L.circle(latlng,100, {
     color: 'green'
     })},
     onEachFeature: function (feature, layer) {
